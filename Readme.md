@@ -5,9 +5,12 @@ There are currently 3 services:
 - billing
 - aggregator
 
-## Run
+## Build
+Install Gradle 
 
 ```
+$ cd services/customers && gradle build && cd ..
+$ cd services/billing && gradle bootJar && cd ..
 $ docker-compose build
 $ docker-compose up
 ```
