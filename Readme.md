@@ -1,9 +1,9 @@
 # Microservice patterns case study
 
 There are currently 3 services:
-- customers
-- billing
-- aggregator
+- customers (Jersey2 + Grizzly)
+- billing (SpringBoot + Jetty)
+- aggregator (NodeJS Express)
 
 ## Build
 Install Gradle 
