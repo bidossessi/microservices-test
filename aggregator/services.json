@@ -1,0 +1,23 @@
+[
+  {
+    "name": "account",
+    "endpoints": [
+      {
+        "name": "profile",
+        "host": "customers",
+        "protocol": "http",
+        "type": "http-get",
+        "port": "8000",
+        "rootPath": "/v1"
+      },
+      {
+        "name": "history",
+        "host": "billing",
+        "protocol": "http",
+        "type": "http-get",
+        "port": "8000",
+        "rootPath": "/v1"
+      }
+    ]
+  }
+]
