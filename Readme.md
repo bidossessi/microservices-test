@@ -1,7 +1,10 @@
 # Microservice patterns case study
 
-There are 2 services:
-- 
+There are currently 3 services:
+- customers
+- billing
+- aggregator
+
 ## Run
 
 ```
