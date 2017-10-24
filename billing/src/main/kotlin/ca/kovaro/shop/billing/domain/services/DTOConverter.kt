@@ -10,14 +10,7 @@ import org.springframework.stereotype.Component
 @Component
 class DTOConverter {
     fun toHistory(id: Long, purchases: List<Purchase>): HistoryDTO {
-        val p:List<PurchaseDTO> = purchases.map {
-            PurchaseDTO(
-                    id = it.id,
-                    product_id = it.product_id,
-                    name = it.name,
-                    price = it.price,
-                    qty = it.qty,
-                    updated_on = it.updated_on) }
+        val p:List<PurchaseDTO> = toList(purchases)
         return HistoryDTO(id, p)
     }
 

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/v1/profile")
-class CustomerResource(private val service: ProfileService = SimpleProfileService()) {
+class CustomerResource(private val service: ProfileService) {
 
     @GetMapping
     fun list():List<ProfileDTO> {

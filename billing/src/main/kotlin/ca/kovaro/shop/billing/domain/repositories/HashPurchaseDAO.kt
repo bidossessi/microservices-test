@@ -2,10 +2,12 @@ package ca.kovaro.shop.billing.domain.repositories
 
 import ca.kovaro.shop.billing.domain.models.Purchase
 import ca.kovaro.shop.billing.domain.models.PurchaseStatus
+import org.springframework.stereotype.Component
 import java.time.Instant
 import java.util.*
 
-class HashPurchaseDAO : PurchaseDAO {
+@Component
+object HashPurchaseDAO : PurchaseDAO {
     private var store = mutableListOf<Purchase>()
 
     init {

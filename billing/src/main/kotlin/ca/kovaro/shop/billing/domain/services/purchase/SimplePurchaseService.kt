@@ -10,7 +10,7 @@ import java.util.*
 
 
 @Component
-class SimplePurchaseService(private val dao: PurchaseDAO = HashPurchaseDAO(),
+class SimplePurchaseService(private val dao: PurchaseDAO,
                             val converter: DTOConverter = DTOConverter(),
                             val publisher: AMQPSender) : PurchaseService {
 

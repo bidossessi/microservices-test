@@ -9,10 +9,9 @@ import org.springframework.web.bind.annotation.*
 @RefreshScope
 @RestController
 @RequestMapping("/v1/history")
-class HistoryResource(private val service: HistoryService = SimpleHistoryService()) {
+class HistoryResource(val service: HistoryService) {
 
     @GetMapping("/{id}")
-    fun get(@PathVariable id: Long): HistoryDTO? {
-        return service.get(id)
-    }
+    fun getHistory(@PathVariable id: Long) = service.getHistory(id)
+
 }
