@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component
 object DTOConverter {
     fun toPicking(dto: InPickingDTO): Picking {
         return Picking(
+                id = dto.id,
                 customer_id = dto.customer_id,
                 product_id = dto.product_id,
                 move_qty = dto.qty)

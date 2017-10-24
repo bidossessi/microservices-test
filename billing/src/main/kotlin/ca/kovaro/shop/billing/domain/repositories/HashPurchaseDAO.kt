@@ -40,6 +40,10 @@ object HashPurchaseDAO : PurchaseDAO {
         return store.find { it.id == id }
     }
 
+    override fun getForCustomer(customer_id: Long, id: UUID): Purchase? {
+        return store.find { it.id == id && it.customer_id == customer_id}
+    }
+
     override fun getAll(id: Long): List<Purchase> {
         return store.filter { it.customer_id == id }
     }

@@ -22,6 +22,9 @@ data class Picking(val id: UUID = UUID.randomUUID(),
                    val created_on: Date = Date.from(Instant.now()),
                    var updated_on: Date = Date.from(Instant.now()))
 
-data class InPickingDTO(val customer_id: Long = 0, val product_id: Long = 0, val qty: Long = 0)
+data class InPickingDTO(val id: UUID = UUID.randomUUID(),
+                        val customer_id: Long = 0,
+                        val product_id: Long = 0,
+                        val qty: Long = 0)
 
 data class PickingDTO(val id: UUID, val customer_id: Long, val product_id: Long, val move_qty: Long)

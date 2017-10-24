@@ -25,7 +25,7 @@ class PurchaseResource(val service: PurchaseService, val publisher: AMQPSender) 
     fun valid(@PathVariable id: Long) = service.validated(id)
 
     @PostMapping("/confirm/{uid}")
-    fun confirm(@PathVariable uid: UUID) = service.confirm(uid)
+    fun confirm(@PathVariable id: Long, @PathVariable uid: UUID) = service.confirm(uid, id)
 
 
     @GetMapping("/test")

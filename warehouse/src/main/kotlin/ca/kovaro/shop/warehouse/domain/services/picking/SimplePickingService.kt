@@ -14,8 +14,9 @@ class SimplePickingService(val inventoryDAO: InventoryDAO,
                            val dao: PickingDAO,
                            val converter: DTOConverter,
                            val publisher: AMQPSender): PickingService {
+
     override fun create(dto: InPickingDTO) {
-        val p = converter.toPicking(dto)
+        val p = dao.getForId(dto.id) ?: converter.toPicking(dto)
         if (inventoryDAO.hasEnough(dto.product_id, dto.qty)) {
             p.status = PickingStatus.Provisionned
         }

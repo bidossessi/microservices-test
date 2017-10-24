@@ -28,8 +28,8 @@ class SimplePurchaseService(private val dao: PurchaseDAO,
         return converter.toList(found)
     }
 
-    override fun confirm(id: UUID): Boolean {
-        val p = dao.get(id)
+    override fun confirm(id: UUID, customer_id: Long): Boolean {
+        val p = dao.getForCustomer(customer_id, id)
         if (p != null) {
             p.status = PurchaseStatus.Validated
             publisher.purchaseValidated(p)

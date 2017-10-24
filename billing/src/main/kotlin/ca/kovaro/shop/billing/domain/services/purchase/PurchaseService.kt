@@ -10,5 +10,5 @@ interface PurchaseService {
     fun pending(id: Long): List<PurchaseDTO>
     fun validated(id: Long): List<PurchaseDTO>
 
-    fun confirm(id: UUID): Boolean
+    fun confirm(id: UUID, customer_id: Long): Boolean
 }
