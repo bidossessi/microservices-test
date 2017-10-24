@@ -5,10 +5,8 @@ import ca.kovaro.shop.customers.domain.repositories.ProfileDAO
 import org.springframework.stereotype.Component
 
 @Component
-class SimpleProfileService(
-        private val dao: ProfileDAO,
-        private val converter: DTOConverter = DTOConverter()
-): ProfileService {
+class SimpleProfileService(private val dao: ProfileDAO,
+                           private val converter: DTOConverter): ProfileService {
 
     override fun list() = converter.convertTo(dao.all())
 

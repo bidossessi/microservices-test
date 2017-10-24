@@ -6,7 +6,7 @@ import ca.kovaro.shop.warehouse.domain.models.PickingDTO
 import org.springframework.stereotype.Component
 
 @Component
-class DTOConverter {
+object DTOConverter {
     fun toPicking(dto: InPickingDTO): Picking {
         return Picking(
                 customer_id = dto.customer_id,

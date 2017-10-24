@@ -1,8 +1,10 @@
 package ca.kovaro.shop.warehouse.domain.repositories
 
 import ca.kovaro.shop.warehouse.domain.models.Inventory
+import org.springframework.stereotype.Component
 
-class HashInventoryDAO : InventoryDAO {
+@Component
+object HashInventoryDAO : InventoryDAO {
 
 
     private var store = listOf<Inventory>()

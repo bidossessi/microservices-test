@@ -1,8 +1,10 @@
 package ca.kovaro.shop.warehouse.domain.repositories
 
 import ca.kovaro.shop.warehouse.domain.models.Picking
+import org.springframework.stereotype.Component
 
-class HashPickingDAO: PickingDAO {
+@Component
+object HashPickingDAO: PickingDAO {
 
 
     private var store = mutableListOf<Picking>()

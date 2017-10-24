@@ -18,12 +18,14 @@ object HashPurchaseDAO : PurchaseDAO {
                     product_id = 1,
                     name = "Cool product",
                     price = 17.3,
+                    qty = idx,
                     created_on = Date.from(Instant.now())))
             store.add(Purchase(
                     customer_id = idx,
                     product_id = 2,
                     name = "Other thing",
                     price = 3.0,
+                    qty = idx,
                     created_on = Date.from(Instant.now())))
             store.add(Purchase(
                     customer_id = idx,

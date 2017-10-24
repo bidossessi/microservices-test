@@ -11,7 +11,7 @@ import java.util.*
 
 @Component
 class SimplePurchaseService(private val dao: PurchaseDAO,
-                            val converter: DTOConverter = DTOConverter(),
+                            val converter: DTOConverter,
                             val publisher: AMQPSender) : PurchaseService {
 
     override fun all(id: Long): List<PurchaseDTO> {

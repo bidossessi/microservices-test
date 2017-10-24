@@ -4,17 +4,15 @@ import ca.kovaro.shop.warehouse.api.v1.amqp.AMQPSender
 import ca.kovaro.shop.warehouse.domain.models.InPickingDTO
 import ca.kovaro.shop.warehouse.domain.models.Picking
 import ca.kovaro.shop.warehouse.domain.models.PickingStatus
-import ca.kovaro.shop.warehouse.domain.repositories.HashInventoryDAO
-import ca.kovaro.shop.warehouse.domain.repositories.HashPickingDAO
 import ca.kovaro.shop.warehouse.domain.repositories.InventoryDAO
 import ca.kovaro.shop.warehouse.domain.repositories.PickingDAO
 import ca.kovaro.shop.warehouse.domain.services.DTOConverter
 import org.springframework.stereotype.Component
 
 @Component
-class SimplePickingService(val inventoryDAO: InventoryDAO = HashInventoryDAO(),
-                           val dao: PickingDAO = HashPickingDAO(),
-                           val converter: DTOConverter = DTOConverter(),
+class SimplePickingService(val inventoryDAO: InventoryDAO,
+                           val dao: PickingDAO,
+                           val converter: DTOConverter,
                            val publisher: AMQPSender): PickingService {
     override fun create(dto: InPickingDTO) {
         val p = converter.toPicking(dto)
