@@ -10,4 +10,8 @@ class HashPickingDAO: PickingDAO {
     override fun save(picking: Picking) {
         store.add(picking)
     }
+
+    override fun all(): List<Picking> {
+        return store
+    }
 }

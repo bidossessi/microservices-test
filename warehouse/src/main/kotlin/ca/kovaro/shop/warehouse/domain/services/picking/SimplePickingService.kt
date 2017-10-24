@@ -1,7 +1,8 @@
 package ca.kovaro.shop.warehouse.domain.services.picking
 
-import ca.kovaro.shop.warehouse.api.v1.resources.AMQPSender
+import ca.kovaro.shop.warehouse.api.v1.amqp.AMQPSender
 import ca.kovaro.shop.warehouse.domain.models.InPickingDTO
+import ca.kovaro.shop.warehouse.domain.models.Picking
 import ca.kovaro.shop.warehouse.domain.models.PickingStatus
 import ca.kovaro.shop.warehouse.domain.repositories.HashInventoryDAO
 import ca.kovaro.shop.warehouse.domain.repositories.HashPickingDAO
@@ -22,5 +23,9 @@ class SimplePickingService(val inventoryDAO: InventoryDAO = HashInventoryDAO(),
         }
         dao.save(p)
         publisher.pickingCreated(p)
+    }
+
+    override fun all(): List<Picking> {
+        return dao.all()
     }
 }

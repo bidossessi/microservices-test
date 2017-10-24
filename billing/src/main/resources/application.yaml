@@ -11,7 +11,7 @@ spring:
 billing:
   rabbitmq:
     queue: billing.queue
-    exchange: billing.fanout
+    exchange: shop.fanout
 ---
 spring:
     profiles: docker

@@ -1,4 +1,4 @@
-package ca.kovaro.shop.warehouse.api.v1.resources
+package ca.kovaro.shop.warehouse.api.v1.amqp
 
 import ca.kovaro.shop.warehouse.domain.models.InPickingDTO
 import ca.kovaro.shop.warehouse.domain.services.picking.PickingService

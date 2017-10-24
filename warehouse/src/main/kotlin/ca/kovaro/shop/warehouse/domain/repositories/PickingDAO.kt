@@ -4,4 +4,5 @@ import ca.kovaro.shop.warehouse.domain.models.Picking
 
 interface PickingDAO {
     fun save(picking: Picking)
+    fun all(): List<Picking>
 }

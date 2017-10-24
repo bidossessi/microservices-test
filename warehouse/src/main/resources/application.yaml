@@ -11,7 +11,7 @@ spring:
 warehouse:
   rabbitmq:
     queue: warehouse.queue
-    exchange: warehouse.fanout
+    exchange: shop.fanout
 ---
 spring:
     profiles: docker
