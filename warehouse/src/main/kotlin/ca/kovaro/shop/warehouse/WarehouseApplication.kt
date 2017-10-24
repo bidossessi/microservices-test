@@ -16,10 +16,10 @@ import org.springframework.context.annotation.Bean
 @SpringBootApplication
 class WarehouseApplication {
 
-    @Value("\${jsa.rabbitmq.queue}")
+    @Value("\${warehouse.rabbitmq.queue}")
     private val queueName: String = ""
 
-    @Value("\${jsa.rabbitmq.exchange}")
+    @Value("\${warehouse.rabbitmq.exchange}")
     private val exchangeName: String = ""
 
     @Bean

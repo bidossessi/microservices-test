@@ -1,26 +1,22 @@
 package ca.kovaro.shop.customers.domain.services
 
 import ca.kovaro.shop.customers.domain.models.ProfileDTO
-import ca.kovaro.shop.customers.domain.repositories.MemoryProfileDao
+import ca.kovaro.shop.customers.domain.repositories.HashProfileDAO
 import ca.kovaro.shop.customers.domain.repositories.ProfileDAO
+import org.springframework.stereotype.Component
 
+@Component
 class SimpleProfileService(
-        private val dao: ProfileDAO = MemoryProfileDao(),
-        private val converter: Converter = Converter()
+        private val dao: ProfileDAO = HashProfileDAO(),
+        private val converter: DTOConverter = DTOConverter()
 ): ProfileService {
 
-//    @Inject private lateinit var dao: MemoryProfileDao
-//    @Inject private lateinit var converter: Converter
-
-    init {
-        println("Starting ProfileService...")
-    }
     override fun list() = converter.convertTo(dao.all())
 
-    override fun create(dto: ProfileDTO): Boolean {
+    override fun create(dto: ProfileDTO) {
         // Some validation...
         val p = converter.convertFrom(dto)
-        return dao.create(p)
+        dao.save(p)
     }
 
     override fun one(id: Long): ProfileDTO? {

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component
 class AMQPReceiver(val service: PickingService) {
 
     // We've set up this queue to only listen for "purchase.validated" events
-    @RabbitListener(queues = arrayOf("\${jsa.rabbitmq.queue}"))
+    @RabbitListener(queues = arrayOf("\${warehouse.rabbitmq.queue}"))
     fun getPicking(dto: InPickingDTO) {
         println("Picking Request: " + dto)
         service.create(dto)

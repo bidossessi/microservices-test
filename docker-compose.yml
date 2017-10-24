@@ -2,53 +2,54 @@ version: '3'
 
 services:
 
-  git:
-    build:
-      context: ./configs
-      dockerfile: Dockerfile
-    image: kovaro/microservice-git-configs
-    container_name: git
-    ports:
-      - 8174:8174 # expose at port 8001 for the host
-
   customers:
+    depends_on:
+      - rabbitmq
     build:
       context: ./customers
       dockerfile: Dockerfile
     image: kovaro/microservice-customers
     container_name: customers
     ports:
-      - 8001:8000 # expose at port 8001 for the host
+      - 8001:8000
 
   billing:
+    depends_on:
+      - rabbitmq
     build:
       context: ./billing
       dockerfile: Dockerfile
     image: kovaro/microservice-billing
     container_name: billing
     ports:
-      - 8002:8000 # expose at port 8002 for the host
+      - 8002:8000
+
+  warehouse:
+    depends_on:
+      - rabbitmq
+    build:
+      context: ./warehouse
+      dockerfile: Dockerfile
+    image: kovaro/microservice-warehouse
+    container_name: warehouse
+    ports:
+      - 8003:8000
 
   aggregator:
+    depends_on:
+      - customers
+      - billing
     build:
       context: ./aggregator
       dockerfile: Dockerfile
     image: kovaro/microservice-aggregator
     container_name: aggregator
     ports:
-      - 8000:3000 # expose at port 8000 for the host
-
-  config-server:
-    build:
-      context: ./config-server
-      dockerfile: Dockerfile
-    image: kovaro/microservice-config-server
-    container_name: config-server
-    ports:
-      - 8888:8888 # expose at port 88888 for the host
+      - 8000:3000
 
   rabbitmq:
     image: rabbitmq:management-alpine
+    container_name: rabbitmq
     ports:
       - "5672:5672"
       - "15672:15672"

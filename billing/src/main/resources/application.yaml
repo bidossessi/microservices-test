@@ -1,0 +1,21 @@
+app:
+  name: billing
+server:
+  port: 8002
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+billing:
+  rabbitmq:
+    queue: billing.queue
+    exchange: billing.fanout
+---
+spring:
+    profiles: docker
+    rabbitmq:
+      host: rabbitmq
+server:
+    port: 8000

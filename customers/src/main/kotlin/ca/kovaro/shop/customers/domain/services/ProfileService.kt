@@ -4,6 +4,6 @@ import ca.kovaro.shop.customers.domain.models.ProfileDTO
 
 interface ProfileService {
     fun list(): List<ProfileDTO>
-    fun create(dto: ProfileDTO): Boolean
+    fun create(dto: ProfileDTO)
     fun one(id: Long): ProfileDTO?
 }
