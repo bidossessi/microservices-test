@@ -1,8 +1,9 @@
 # Microservice patterns case study
 
-There are currently 3 services:
-- customers (Jersey2 + Grizzly)
+There are currently 4 services:
+- customers (SpringBoot + Jetty)
 - billing (SpringBoot + Jetty)
+- warehouse (SpringBoot + Jetty)
 - aggregator (NodeJS Express)
 
 ## Build
