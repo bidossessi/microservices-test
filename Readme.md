@@ -1,10 +1,10 @@
 # Microservice patterns case study
 
 There are currently 4 services:
-- customers (SpringBoot + Jetty)
-- billing (SpringBoot + Jetty)
-- warehouse (SpringBoot + Jetty)
-- aggregator (NodeJS Express)
+- customers (SpringBoot + Jetty) running on port 8001
+- billing (SpringBoot + Jetty) running on port 8002
+- warehouse (SpringBoot + Jetty) running on port 8003
+- aggregator (NodeJS Express) running on port 8000
 
 ## Build
 Install Gradle , Docker and docker-compose
