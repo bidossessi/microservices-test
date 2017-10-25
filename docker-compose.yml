@@ -13,6 +13,17 @@ services:
     ports:
       - 8001:8000
 
+  customers:
+    depends_on:
+      - rabbitmq
+    build:
+      context: ./customers
+      dockerfile: Dockerfile
+    image: kovaro/microservice-customers
+    container_name: customers
+    ports:
+      - 8002:8000
+
   billing:
     depends_on:
       - rabbitmq
@@ -22,7 +33,7 @@ services:
     image: kovaro/microservice-billing
     container_name: billing
     ports:
-      - 8002:8000
+      - 8003:8000
 
   warehouse:
     depends_on:
@@ -33,7 +44,7 @@ services:
     image: kovaro/microservice-warehouse
     container_name: warehouse
     ports:
-      - 8003:8000
+      - 8004:8000
 
   aggregator:
     depends_on:
@@ -45,7 +56,7 @@ services:
     image: kovaro/microservice-aggregator
     container_name: aggregator
     ports:
-      - 8000:3000
+      - 8005:3000
 
   rabbitmq:
     image: rabbitmq:management-alpine
